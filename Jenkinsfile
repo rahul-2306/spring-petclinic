@@ -1,11 +1,10 @@
 pipeline {
-    agent
-    node-1 {
+    agent{
         label "MAVEN"
-        options {
-            timeout(time: 30, unit: 'MINUTES') 
-        }
     }
+        options {
+            timeout(time: 30, unit: 'MINUTES')
+        }
     triggers { 
         pollSCM('* * * * *')
     }
