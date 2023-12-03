@@ -23,9 +23,9 @@ pipeline {
                 success {
                     archiveArtifacts artifacts: '**/spring-petclinic-*.jar'
                     junit testResults: '**/TEST-*.xml'
-                    mail subject: 'build stage succeded'
-                         from: 'build@lt.io'
-                         to: 'rahul@lt.io'
+                    mail subject: 'build stage succeded',
+                         from: 'build@lt.io',
+                         to: 'rahul@lt.io',
                          body: 'Refer to $BUILD_URL for more detail'
                 }
                 failure {
