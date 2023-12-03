@@ -15,8 +15,6 @@ pipeline {
                     branch: 'spring-dev'
             }
         }
-    }
-    stages {
         stage('build') {
             steps {
                 sh 'mvn clean package'
