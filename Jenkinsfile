@@ -15,10 +15,19 @@ pipeline {
                     branch: 'spring-dev'
             }
         }
-        stage('build') {
+        stage("build & SonarQube analysis") {
             steps {
-                sh 'mvn clean package'
+                withSonarQubeEnv('sonar') {
+                sh 'mvn clean package sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=spring-23 -Dsonar.projectKey=spring-23'
+                }
             }
+        }
+        stage("Quality Gate") {
+            steps {
+                timeout(time:30, unit: 'MINUTES'){
+                waitForQualityGate abortPipeline: true
+            }
+        }
             post {
                 success {
                     archiveArtifacts artifacts: '**/spring-petclinic-*.jar'
@@ -36,5 +45,6 @@ pipeline {
                 }
             }
         }
+        stage(){}           
     }
 }
