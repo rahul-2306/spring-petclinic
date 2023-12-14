@@ -1,3 +1,3 @@
 def test(message) {
-    echo "the message is $(message)"
+    echo "the message is the $(message)"
 }

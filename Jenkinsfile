@@ -3,9 +3,9 @@
 pipeline {
     agent any
     stages {
-        stage('Example Stage') {
+        stage('Demo') {
             steps {
-                test("clean package")
+                test("Hi Jemkins")
             }
         }
     } 
