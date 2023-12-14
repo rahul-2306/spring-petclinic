@@ -5,9 +5,7 @@ pipeline {
     stages {
         stage('Example Stage') {
             steps {
-                script {
-                    test("clean package")
-                }
+                test("clean package")
             }
         }
     } 
