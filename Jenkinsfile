@@ -3,7 +3,7 @@
 pipeline {
     agent any
     stages {
-        sateg('Example Stage') {
+        stage('Example Stage') {
             steps {
                 script {
                     test("clean package")
