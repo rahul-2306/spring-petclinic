@@ -1,4 +1,4 @@
-@Library('common-dev') _
+@Library('testlib') _
 
 pipeline {
     agent any
@@ -6,9 +6,7 @@ pipeline {
         sateg('Example Stage') {
             steps {
                 script {
-                    test_maven("clean package")
-                    def mylib = new dev.src.test_maven()
-                    mylib.echo("clean package")
+                    test("clean package")
                 }
             }
         }
